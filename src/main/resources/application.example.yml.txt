@@ -1,0 +1,30 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/<dbname>
+  application:
+    name: <name>
+  logging:
+    level:
+      root: INFO
+server:
+    port: 8080
+    servlet:
+      context-path: '/api/v1'
+# Actuator endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: threaddump,metrics,info,env,health
+  endpoint:
+    metrics:
+      enabled: true
+    env:
+      enabled: true
+    info:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
